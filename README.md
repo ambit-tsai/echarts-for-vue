@@ -28,7 +28,7 @@
         },
         methods: {
             doSomething() {
-                this.$refs.chart.$inst.getWidth();  // 调用 ECharts 实列的方法
+                this.$refs.chart.$inst.getWidth();  // 调用 ECharts 实例的方法
             }
         }
     }
