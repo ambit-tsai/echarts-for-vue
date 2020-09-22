@@ -28,20 +28,20 @@
         },
         methods: {
             doSomething() {
-                this.$refs.chart.$inst.getWidth();  // 调用 ECharts 实例的方法
+                this.$refs.chart.inst.getWidth();   // 调用 ECharts 实例的方法
             }
         }
     }
 </script>
 ```
-1. <a href="docs/index.js" target="_blank">其它示例</a>
+1. <a href="docs/index.js" target="_blank">更多示例</a>
 1. <a href="https://ambit-tsai.github.io/echarts-for-vue/" target="_blank">效果演示</a>
 
 
 #### 组件实例的属性
-|名称|类型|值|说明|
-|-|-|-|-|
-|$inst|Object||ECharts 实例|
+|名称|类型|说明|
+|-|-|-|
+|inst|Object|ECharts 实例|
 
 
 #### props

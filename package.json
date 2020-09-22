@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "适用于 Vue 的 ECharts 包装组件，轻便、高效，贴合用户的使用习惯",
   "main": "dist/echarts-for-vue.js",
   "module": "dist/echarts-for-vue.mjs",
@@ -9,7 +9,7 @@
     "prod": "node scripts/rollup.prod.js"
   },
   "author": "Ambit-Tsai <ambit_tsai@qq.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",

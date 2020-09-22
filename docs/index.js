@@ -40,7 +40,7 @@ new Vue({
 
     methods: {
         onClick() {
-            const inst = this.$refs.chart.$inst;    // get the echarts instance
+            const inst = this.$refs.chart.inst;     // get the echarts instance
             alert(`Trigger click event: width(${inst.getWidth()}), height(${inst.getHeight()})`);
         },
     },

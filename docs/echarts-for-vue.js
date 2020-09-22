@@ -1,9 +1,9 @@
 
 /**
  * echarts-for-vue
- * @version 0.0.1
+ * @version 0.0.2
  * @author Ambit-Tsai <ambit_tsai@qq.com>
- * @license MIT
+ * @license Apache-2.0
  * @see {@link https://github.com/ambit-tsai/echarts-for-vue#readme}
  */
 (function (global, factory) {
@@ -55,7 +55,7 @@
             return {
                 resizeChart: echarts__default['default'].throttle(() => {
                     const {clientWidth, clientHeight} = this.$el;
-                    this.$inst.resize({
+                    this.inst.resize({
                         width: clientWidth,
                         height: clientHeight,
                     });
@@ -66,9 +66,9 @@
         watch: {
             loading(val) {
                 if (val) {
-                    this.$inst.showLoading(this.loadingType, this.loadingOpts);
+                    this.inst.showLoading(this.loadingType, this.loadingOpts);
                 } else {
-                    this.$inst.hideLoading();
+                    this.inst.hideLoading();
                 }
             },
             option(val) {
@@ -78,7 +78,7 @@
 
         mounted() {
             const inst = echarts__default['default'].init(this.$el, this.theme, this.initOpts);
-            this.$inst = inst;
+            this.inst = inst;
             
             if (this.loading) {
                 inst.showLoading(this.loadingType, this.loadingOpts);
@@ -96,7 +96,7 @@
 
         methods: {
             setOption(option, opts) {
-                this.$inst.setOption(option, {
+                this.inst.setOption(option, {
                     ...this.setOptionOpts,
                     ...opts,
                 });
@@ -122,7 +122,7 @@
 
         beforeDestroy() {
             this.removeResizeListener();
-            this.$inst.dispose();
+            this.inst.dispose();
         },
         
     };

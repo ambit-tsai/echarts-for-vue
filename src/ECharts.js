@@ -41,7 +41,7 @@ export default {
         return {
             resizeChart: echarts.throttle(() => {
                 const {clientWidth, clientHeight} = this.$el;
-                this.$inst.resize({
+                this.inst.resize({
                     width: clientWidth,
                     height: clientHeight,
                 });
@@ -52,9 +52,9 @@ export default {
     watch: {
         loading(val) {
             if (val) {
-                this.$inst.showLoading(this.loadingType, this.loadingOpts);
+                this.inst.showLoading(this.loadingType, this.loadingOpts);
             } else {
-                this.$inst.hideLoading();
+                this.inst.hideLoading();
             }
         },
         option(val) {
@@ -64,7 +64,7 @@ export default {
 
     mounted() {
         const inst = echarts.init(this.$el, this.theme, this.initOpts);
-        this.$inst = inst;
+        this.inst = inst;
         
         if (this.loading) {
             inst.showLoading(this.loadingType, this.loadingOpts)
@@ -82,7 +82,7 @@ export default {
 
     methods: {
         setOption(option, opts) {
-            this.$inst.setOption(option, {
+            this.inst.setOption(option, {
                 ...this.setOptionOpts,
                 ...opts,
             });
@@ -108,7 +108,7 @@ export default {
 
     beforeDestroy() {
         this.removeResizeListener();
-        this.$inst.dispose();
+        this.inst.dispose();
     },
     
 };
