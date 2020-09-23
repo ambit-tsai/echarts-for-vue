@@ -2,7 +2,7 @@ html, body {
     height: 100%;
 }
 
-.wrapper {
+#app {
     width: 50%;
     height: 50%;
     margin-left: auto;
@@ -10,7 +10,7 @@ html, body {
 }
 
 @media (max-width: 992px) {
-    .wrapper {
+    #app {
         width: 80%;
         height: 80%;
     }

@@ -1,7 +1,6 @@
+var ECharts = EChartsForVue.createComponent(echarts, Vue);
 
-new Vue({
-    el: '#app',
-
+var app = Vue.createApp({
     data() {
         return {
             loading: true,
@@ -12,20 +11,18 @@ new Vue({
         };
     },
 
-    render(h) {
-        return h(ECharts, {
+    render() {
+        return Vue.h(ECharts, {
             ref: 'chart',
-            props: {
-                loading: this.loading,
-                loadingOpts: {
-                    text: 'Close after 3 seconds',
-                },
-                option: this.option,
-                setOptionOpts: this.setOptionOpts,
-                events: [
-                    ['click', this.onClick],        // listen to click event
-                ],
+            loading: this.loading,
+            loadingOpts: {
+                text: 'Close after 3 seconds',
             },
+            option: this.option,
+            setOptionOpts: this.setOptionOpts,
+            events: [
+                ['click', this.onClick],        // listen to click event
+            ],
         });
     },
 
@@ -45,3 +42,7 @@ new Vue({
         },
     },
 });
+
+
+app.config.devtools = true;
+app.mount('#app');

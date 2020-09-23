@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "适用于 Vue 的 ECharts 包装组件，轻便、高效，贴合用户的使用习惯",
   "main": "dist/echarts-for-vue.js",
   "module": "dist/echarts-for-vue.mjs",
@@ -15,14 +15,14 @@
     "@babel/preset-env": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.1",
     "echarts": "^4.9.0",
-    "resize-detector": "^0.2.2",
     "rollup": "^2.27.1",
     "rollup-plugin-serve": "^1.0.4",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "vue": "^3.0.0"
   },
   "peerDependencies": {
     "echarts": ">3",
-    "resize-detector": ">0.2"
+    "vue": ">2"
   },
   "repository": {
     "type": "git",

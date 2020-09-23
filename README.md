@@ -4,9 +4,7 @@
 适用于 Vue 的 ECharts 包装组件，轻便、高效，贴合用户的使用习惯
 
 #### 安装
-本组件依赖 `echarts` 与 `resize-detector`
-* 已装依赖: `npm i -S echarts-for-vue`
-* 未装依赖: `npm i -S echarts resize-detector echarts-for-vue`
+`npm i -S echarts echarts-for-vue`
 
 
 #### 用法
@@ -62,7 +60,7 @@
 |定义|说明|
 |-|-|
 |void `setOption`(Object *option*, Object *opts*)|调用 ECharts 实例的 `setOption` 方法，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
-|void `resizeChart`()|调整图表大小（以组件外层 div 大小为准）|
+|void `resize`()|调整图表大小（以组件外层 div 大小为准）|
 |void `addResizeListener`()|添加 resize 监听器|
 |void `removeResizeListener`()|移除 resize 监听器|
 

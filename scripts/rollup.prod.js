@@ -11,7 +11,7 @@ const banner = require('./banner');
         file: 'dist/echarts-for-vue.js',
         format: 'umd',
         banner,
-        name: 'ECharts',
+        name: 'EChartsForVue',
         globals: {
             echarts: 'echarts',
             'resize-detector': 'resizeDetector',
