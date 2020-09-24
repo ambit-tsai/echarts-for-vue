@@ -1,25 +1,38 @@
+[简体中文](README.zh-CN.md) | English
+
 
 # ECharts For Vue&nbsp;&nbsp;![Version](https://img.shields.io/npm/v/echarts-for-vue.svg)
 
-适用于 Vue 的 ECharts 包装组件，轻便、高效，贴合用户的使用习惯
-
-#### 安装
-本组件依赖 `echarts` 与 `resize-detector`
-* 已装依赖: `npm i -S echarts-for-vue`
-* 未装依赖: `npm i -S echarts resize-detector echarts-for-vue`
+ECharts Wrapper Component For Vue 3 and 2
 
 
-#### 用法
+#### Install
+`npm i -S echarts-for-vue`
+
+
+#### Usage
+1. Vue 3
+```javascript
+import { createApp, h } from 'vue';
+import echarts from 'echarts';
+import { plugin } from 'echarts-for-vue';
+
+const app = createApp({ /*...*/ });
+app.use(plugin, { echarts, h });                    // use as a plugin
+```
 ```html
 <template>
     <ECharts ref="chart" :option="option" />
 </template>
 
 <script>
-    import ECharts from 'echarts-for-vue';
+    import echarts from 'echarts';
+    import { h } from 'vue';
+    import { createComponent } from 'echarts-for-vue';
+
     export default {
         components: {
-            ECharts,
+            ECharts: createComponent(echarts, h),   // use as a component
         },
         data() {
             return {
@@ -28,46 +41,88 @@
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();   // 调用 ECharts 实例的方法
+                this.$refs.chart.inst.getWidth();   // call the method of the ECharts instance
             }
         }
     }
 </script>
 ```
-1. <a href="docs/index.js" target="_blank">更多示例</a>
-1. <a href="https://ambit-tsai.github.io/echarts-for-vue/" target="_blank">效果演示</a>
+
+2. Vue 2
+```javascript
+import Vue from 'vue';
+import echarts from 'echarts';
+import { plugin } from 'echarts-for-vue';
+
+Vue.use(plugin, { echarts });                       // use as a plugin
+```
+```html
+<template>
+    <ECharts ref="chart" :option="option" />
+</template>
+
+<script>
+    import echarts from 'echarts';
+    import { createComponent } from 'echarts-for-vue';
+
+    export default {
+        components: {
+            ECharts: createComponent(echarts),      // use as a component
+        },
+        data() {
+            return {
+                option: { /*...*/ },
+            };
+        },
+        methods: {
+            doSomething() {
+                this.$refs.chart.inst.getWidth();   // call the method of the ECharts instance
+            }
+        }
+    }
+</script>
+```
+3. <a href="test" target="_blank">More examples</a>
+4. <a href="https://ambit-tsai.github.io/echarts-for-vue/" target="_blank">Online demo</a>
 
 
-#### 组件实例的属性
-|名称|类型|说明|
+#### Global API
+|Definition|Return|Explain|
 |-|-|-|
-|inst|Object|ECharts 实例|
+|Object `createComponent`(echarts *echarts* [, Function *h*])|Component definition object|Create a component. Param `h` isn't required in Vue 2|
+|void `plugin`(Vue *app*, Object *options*)||The installation method of plugin. Param `options` has 3 props (`echarts`, `h`, `name`)|
+
+
+#### Instance Properties
+|Name|Type|Explain|
+|-|-|-|
+|inst|Object|ECharts instance|
 
 
 #### props
-|名称|类型|默认值|响应性|说明|
+|Name|Type|Default|Reactive|Explain|
 |-|-|-|-|-|
-|initTheme|Object, String|||`echarts.init` 方法的入参 `theme`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
-|initOpts|String|||`echarts.init` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
-|loading|Boolean|false|✔|显示加载动画效果|
-|loadingType|String|"default"||ECharts 实例 `showLoading` 方法的入参 `type`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">详见</a>|
-|loadingOpts|Object|||ECharts 实例 `showLoading` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">详见</a>|
-|option|Object||✔|ECharts 实例 `setOption` 方法的入参 `option`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
-|setOptionOpts|Object|||ECharts 实例 `setOption` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
-|events|Array&lt;Arguments&gt;|||数组元素为ECharts 实例 `on` 方法的入参，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">详见</a>|
-|autoResize|Boolean|true||自动调整大小|
+|initTheme|Object, String|||The param `theme` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
+|initOpts|String|||The param `opts` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
+|loading|Boolean|false|✔|Shows loading animation|
+|loadingType|String|"default"||The param `type` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
+|loadingOpts|Object|||The param `opts` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
+|option|Object||✔|The param `option` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
+|setOptionOpts|Object|||The param `opts` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
+|events|Array&lt;Arguments&gt;|||The array element is an argument of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
+|autoResize|Boolean|true||Auto resize (Based on `ResizeObserver`, forward compatibility via polyfill）|
 
 
 #### methods
-|定义|说明|
+|Definition|Explain|
 |-|-|
-|void `setOption`(Object *option*, Object *opts*)|调用 ECharts 实例的 `setOption` 方法，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
-|void `resizeChart`()|调整图表大小（以组件外层 div 大小为准）|
-|void `addResizeListener`()|添加 resize 监听器|
-|void `removeResizeListener`()|移除 resize 监听器|
+|void `setOption`(Object *option*, Object *opts*)|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
+|void `resize`()|Resize (Based on the size of outer div)|
+|void `addResizeListener`()|Add resize listener|
+|void `removeResizeListener`()|Remove resize listener|
 
 
-#### 联系
-1. *微信*: ambit_tsai
-1. *QQ群*: 663286147
-1. *邮箱*: ambit_tsai@qq.com
+#### Contact Us
+1. *WeChat*: ambit_tsai
+1. *QQ Group*: 663286147
+1. *E-mail*: ambit_tsai@qq.com
