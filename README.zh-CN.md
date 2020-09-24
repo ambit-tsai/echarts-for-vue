@@ -83,7 +83,7 @@ Vue.use(plugin, { echarts });                       // 作用插件使用
 </script>
 ```
 3. <a href="test" target="_blank">更多示例</a>
-4. <a href="https://ambit-tsai.github.io/echarts-for-vue/" target="_blank">效果演示</a>
+4. <a href="http://ambit.gitee.io/echarts-for-vue/" target="_blank">效果演示</a>
 
 
 #### 全局 API
