@@ -89,8 +89,8 @@ Vue.use(plugin, { echarts });                       // use as a plugin
 #### Global API
 |Definition|Return|Explain|
 |-|-|-|
-|Object `createComponent`(echarts *echarts* [, Function *h*])|Component definition object|Create a component. Param `h` isn't required in Vue 2|
-|void `plugin`(Vue *app*, Object *options*)||The installation method of plugin. Param `options` has 3 props (`echarts`, `h`, `name`)|
+|Object `createComponent`(echarts *echarts* [, Function *h*])|Component definition object|Create a component. Parameter `h` isn't required in Vue 2|
+|void `plugin`(Vue *app*, Object *options*)||The installation method of plugin. Parameter `options` has 3 props (`echarts`, `h`, `name`)|
 
 
 #### Instance Properties
@@ -102,13 +102,13 @@ Vue.use(plugin, { echarts });                       // use as a plugin
 #### props
 |Name|Type|Default|Reactive|Explain|
 |-|-|-|-|-|
-|initTheme|Object, String|||The param `theme` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
-|initOpts|String|||The param `opts` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
+|initTheme|Object, String|||The parameter `theme` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
+|initOpts|String|||The parameter `opts` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
 |loading|Boolean|false|✔|Shows loading animation|
-|loadingType|String|"default"||The param `type` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
-|loadingOpts|Object|||The param `opts` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
-|option|Object||✔|The param `option` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
-|setOptionOpts|Object|||The param `opts` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
+|loadingType|String|"default"||The parameter `type` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
+|loadingOpts|Object|||The parameter `opts` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
+|option|Object||✔|The parameter `option` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
+|setOptionOpts|Object|||The parameter `opts` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
 |events|Array&lt;Arguments&gt;|||The array element is an argument of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
 |autoResize|Boolean|true||Auto resize (Based on `ResizeObserver`, forward compatibility via polyfill）|
 
