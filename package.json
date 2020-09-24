@@ -1,7 +1,7 @@
 {
   "name": "echarts-for-vue",
   "version": "0.0.3",
-  "description": "适用于 Vue 的 ECharts 包装组件，轻便、高效，贴合用户的使用习惯",
+  "description": "ECharts wrapper component for Vue 3 and 2",
   "main": "dist/echarts-for-vue.js",
   "module": "dist/echarts-for-vue.mjs",
   "scripts": {

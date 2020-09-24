@@ -1,10 +1,22 @@
 const rollup = require('rollup');
-const inputOptions = require('./input-options');
+const babel = require('@rollup/plugin-babel');
+const { terser } = require('rollup-plugin-terser');
 const banner = require('./banner');
 
 
 (async () => {
-    const bundle = await rollup.rollup(inputOptions);
+    const bundle = await rollup.rollup({
+        input: 'src/ECharts.js',
+        plugins: [
+            babel.default({
+                babelHelpers: 'bundled',
+                presets: [
+                    '@babel/preset-env'
+                ],
+            }),
+            terser(),
+        ],
+    });
 
     // Create the UMD version
     await bundle.write({
@@ -12,10 +24,6 @@ const banner = require('./banner');
         format: 'umd',
         banner,
         name: 'EChartsForVue',
-        globals: {
-            echarts: 'echarts',
-            'resize-detector': 'resizeDetector',
-        },
     });
 
     // Create the ESM version
