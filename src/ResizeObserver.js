@@ -1,7 +1,7 @@
 let Class;
 
 
-if (typeof ResizeObserver === 'object') {
+if (typeof ResizeObserver === 'function') {
     Class = ResizeObserver;
 } else {
     console.warn('[ECharts-For-Vue] "autoResize" is invalid, you need a ResizeObserver polyfill');
