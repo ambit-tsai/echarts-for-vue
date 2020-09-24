@@ -41,5 +41,13 @@
   "homepage": "https://github.com/ambit-tsai/echarts-for-vue#readme",
   "bugs": {
     "url": "https://github.com/ambit-tsai/echarts-for-vue/issues"
-  }
+  },
+  "keywords": [
+    "echarts",
+    "vue",
+    "vue3",
+    "vue2",
+    "3",
+    "chart"
+  ]
 }
