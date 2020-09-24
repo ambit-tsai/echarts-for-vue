@@ -1,10 +1,11 @@
 import { getHooks } from './LifecycleHooks';
+import ResizeObserver from './ResizeObserver';
 
 
 /**
  * Create a component
  * @param {echarts} echarts 
- * @param {Vue} [Vue] not required for Vue 2
+ * @param {Vue} Vue optional for Vue 2
  * @returns {Object}
  */
 export function createComponent(echarts, Vue) {
@@ -104,7 +105,6 @@ export function createComponent(echarts, Vue) {
 function vue2Render(h) {
     return h('div', {
         attrs: this.$attrs,
-        on: this.$listeners,
         style: {
             height: '100%',
             overflow: 'hidden',
