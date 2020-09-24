@@ -5,11 +5,11 @@ import ResizeObserver from './ResizeObserver';
 /**
  * Create a component
  * @param {echarts} echarts 
- * @param {Vue} Vue optional for Vue 2
+ * @param {function} [h] `createElement`, required for Vue 3
  * @returns {Object}
  */
-export function createComponent(echarts, Vue) {
-    const isVue3 = Vue?.version.includes('3.');
+export function createComponent(echarts, h) {
+    const isVue3 = !!h;
     const hooks = getHooks(echarts);
 
     if (!isVue3) {
@@ -21,7 +21,7 @@ export function createComponent(echarts, Vue) {
         ...hooks,
 
         name: 'ECharts',
-        render: isVue3 ? getVue3Render(Vue) : vue2Render,
+        render: isVue3 ? getVue3Render(h) : vue2Render,
     
         props: {
             initTheme: [Object, String],
@@ -90,14 +90,7 @@ export function createComponent(echarts, Vue) {
                 this.$data._private.observer.disconnect();
             },
         },
-    
-        /**
-         * Install plugin
-         * @param {Vue} app 
-         */
-        install(app) {
-            app.component(this.name, this);
-        },
+
     };
 }
 
@@ -113,9 +106,9 @@ function vue2Render(h) {
 }
 
 
-function getVue3Render(Vue) {
+function getVue3Render(h) {
     return function () {
-        return Vue.h('div', {
+        return h('div', {
             ...this.$attrs,
             style: {
                 height: '100%',
@@ -126,7 +119,13 @@ function getVue3Render(Vue) {
 }
 
 
-// TODO: ResizeObserver 兼容处理
-// TODO: vue 2-3 版本输出
-// TODO: test > webpack、rollup
-// TODO: 英文文档
+/**
+ * Install plugin
+ * @param {Vue} app 
+ * @param {Object} options
+ */
+export function plugin(app, options) {
+    const {echarts, h, name} = options;
+    const definition = createComponent(echarts, h);
+    app.component(name || definition.name, definition);
+}
