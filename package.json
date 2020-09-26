@@ -26,11 +26,11 @@
     "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2",
     "vite": "^1.0.0-rc.4",
-    "vue": "^3.0.0",
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
     "vue2": "npm:vue@^2.6.12",
+    "vue3": "npm:vue@^3.0.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
@@ -52,8 +52,8 @@
   },
   "keywords": [
     "echarts",
-    "vue",
     "vue3",
+    "vue",
     "vue2",
     "3",
     "chart"

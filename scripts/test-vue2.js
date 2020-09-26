@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    // devtool: 'cheap-module-inline-source-map',
+    devtool: 'cheap-module-inline-source-map',
     context: ROOT,
     entry: `${ROOT}/test/vue2/main.js`,
     output: {
@@ -16,6 +16,7 @@ module.exports = {
     resolve: {
         alias: {
             vue: 'vue2',
+            'echarts-for-vue': `${ROOT}/dist/echarts-for-vue.mjs`,
         },
     },
     module: {
@@ -51,7 +52,6 @@ module.exports = {
         },
     },
     devServer: {
-        contentBase: `${ROOT}/dist/test-vue2`,
         port: 8002,
         hot: true,
         open: true,

@@ -1,16 +1,50 @@
 <template>
-    <ECharts ref="chart" :option="option" />
+    <div class="App">
+        <ECharts
+            class="chart"
+            ref="chart"
+            :option="option"
+            :setOptionOpts="{ notMerge: true }"
+            :loading="loading"
+            :loadingOpts="{ text: 'Wait for 0.8s' }"
+            :events="[
+                ['dblclick', onDblclick],
+            ]"
+        />
+
+        <ol>
+            <li>Resize the window to test the feature "autoResize";</li>
+            <li><button @click="toggleChartOption" :disabled="loading">Click here</button> to toggle the chart options;</li>
+            <li>Double click the symbol to test the event listener;</li>
+            <li>For details, see <a href="https://github.com/ambit-tsai/echarts-for-vue/tree/master/test/App.vue" target="_blank">/test/App.vue</a>;</li>
+        </ol>
+    </div>
 </template>
 
 
 <script>
-import option from './echarts-option';
+import { Option1, Option2 } from './options';
 
 export default {
     data() {
         return {
-            option,
+            Option1,
+            Option2,
+            option: Option1,
+            loading: false,
         };
+    },
+    methods: {
+        toggleChartOption() {
+            this.loading = true;
+            setTimeout(() => {
+                this.option = this.option === this.Option1 ? this.Option2 : this.Option1;
+                this.loading = false;
+            }, 800);
+        },
+        onDblclick() {
+            alert('The listener is triggered');
+        },
     },
 };
 </script>
@@ -23,7 +57,7 @@ html, body {
 }
 #app {
     width: 60%;
-    height: 60%;
+    height: 65%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -32,5 +66,16 @@ html, body {
         width: 80%;
         height: 80%;
     }
+}
+</style>
+<style scoped>
+.App {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.chart {
+    height: 0;
+    flex-grow: 1;
 }
 </style>
