@@ -3,7 +3,7 @@ export function getHooks(echarts) {
     return {
         mounted() {
             const inst = echarts.init(this.$el, this.theme, this.initOpts);
-            this.inst = inst;
+            this.$data._private.dynamic.inst = inst;
             
             if (this.loading) {
                 inst.showLoading(this.loadingType, this.loadingOpts)

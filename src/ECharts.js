@@ -5,7 +5,7 @@ import ResizeObserver from './ResizeObserver';
 /**
  * Create a component
  * @param {echarts} echarts 
- * @param {function} [h] `createElement`, required for Vue 3
+ * @param {Function} [h] `createElement`, required for Vue 3
  * @returns {Object}
  */
 export function createComponent(echarts, h) {
@@ -51,6 +51,12 @@ export function createComponent(echarts, h) {
                     dynamic: {},
                 }),
             };
+        },
+
+        computed: {
+            inst() {
+                return this.$data._private.dynamic.inst;
+            },
         },
 
         watch: {
@@ -123,9 +129,11 @@ function getVue3Render(h) {
  * Install plugin
  * @param {Vue} app 
  * @param {Object} options
+ * @param {echarts} options.echarts
+ * @param {Function} [options.h] `createElement`
+ * @param {String} [options.name]
  */
-export function plugin(app, options) {
-    const {echarts, h, name} = options;
+export function plugin(app, {echarts, h, name}) {
     const definition = createComponent(echarts, h);
     app.component(name || definition.name, definition);
 }
