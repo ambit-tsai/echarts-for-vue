@@ -16,7 +16,7 @@ module.exports = {
     resolve: {
         alias: {
             vue: 'vue2',
-            'echarts-for-vue': `${ROOT}/dist/echarts-for-vue.mjs`,
+            'echarts-for-vue': `${ROOT}/src/ECharts.js`,
         },
     },
     module: {

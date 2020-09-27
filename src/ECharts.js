@@ -1,15 +1,23 @@
 import { getHooks } from './LifecycleHooks';
-import ResizeObserver from './ResizeObserver';
+import ResizeObserverSham from './ResizeObserverSham';
 
 
 /**
  * Create a component
- * @param {echarts} echarts 
- * @param {Function} [h] `createElement`, required for Vue 3
+ * @param {Object} options 
+ * @param {echarts} options.echarts
+ * @param {Function} [options.h] `createElement`, required for Vue 3
+ * @param {Function} [options.ResizeObserver]
+ * @param {String} [options.name]
  * @returns {Object}
  */
-export function createComponent(echarts, h) {
-    const isVue3 = !!h;
+export function createComponent({
+    echarts,
+    h,
+    ResizeObserver = ResizeObserverSham,
+    name = 'ECharts',
+}) {
+    const isVue3 = typeof h === 'function';
     const hooks = getHooks(echarts);
 
     if (!isVue3) {
@@ -20,7 +28,7 @@ export function createComponent(echarts, h) {
     return {
         ...hooks,
 
-        name: 'ECharts',
+        name,
         render: isVue3 ? getVue3Render(h) : vue2Render,
     
         props: {
@@ -129,11 +137,8 @@ function getVue3Render(h) {
  * Install plugin
  * @param {Vue} app 
  * @param {Object} options
- * @param {echarts} options.echarts
- * @param {Function} [options.h] `createElement`
- * @param {String} [options.name]
  */
-export function plugin(app, {echarts, h, name}) {
-    const definition = createComponent(echarts, h);
-    app.component(name || definition.name, definition);
+export function plugin(app, options) {
+    const definition = createComponent(options);
+    app.component(definition.name, definition);
 }

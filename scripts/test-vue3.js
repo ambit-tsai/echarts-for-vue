@@ -8,7 +8,8 @@ export default {
     open: true,
     alias: {
         vue: 'vue3',
+        'echarts-for-vue': '/@src/ECharts.js',
         '/@test/': path.resolve(ROOT, '..'),
-        '/@dist/': path.resolve(__dirname, '../dist'),
+        '/@src/': path.resolve(__dirname, '../src'),
     },
 }

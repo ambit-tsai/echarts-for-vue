@@ -22,6 +22,7 @@
     "css-loader": "^3.6.0",
     "echarts": "^4.9.0",
     "html-webpack-plugin": "^4.5.0",
+    "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.27.1",
     "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2",
