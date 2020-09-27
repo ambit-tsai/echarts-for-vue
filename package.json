@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-vue",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "ECharts wrapper component for Vue 3 and 2",
   "main": "dist/echarts-for-vue.js",
   "module": "dist/echarts-for-vue.mjs",

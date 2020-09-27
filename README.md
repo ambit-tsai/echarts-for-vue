@@ -3,7 +3,7 @@
 
 # ECharts For Vue&nbsp;&nbsp;![Version](https://img.shields.io/npm/v/echarts-for-vue.svg)
 
-ECharts Wrapper Component For Vue 3 and 2
+ECharts wrapper component for Vue 3 and 2
 
 
 #### Install
@@ -18,7 +18,7 @@ import echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
 const app = createApp({ /*...*/ });
-app.use(plugin, { echarts, h });                    // use as a plugin
+app.use(plugin, { echarts, h });                        // use as a plugin
 ```
 ```html
 <template>
@@ -32,7 +32,7 @@ app.use(plugin, { echarts, h });                    // use as a plugin
 
     export default {
         components: {
-            ECharts: createComponent(echarts, h),   // use as a component
+            ECharts: createComponent({ echarts, h }),   // use as a component
         },
         data() {
             return {
@@ -41,7 +41,7 @@ app.use(plugin, { echarts, h });                    // use as a plugin
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();   // call the method of the ECharts instance
+                this.$refs.chart.inst.getWidth();       // call the method of the ECharts instance
             }
         }
     }
@@ -54,7 +54,7 @@ import Vue from 'vue';
 import echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
-Vue.use(plugin, { echarts });                       // use as a plugin
+Vue.use(plugin, { echarts });                           // use as a plugin
 ```
 ```html
 <template>
@@ -67,7 +67,7 @@ Vue.use(plugin, { echarts });                       // use as a plugin
 
     export default {
         components: {
-            ECharts: createComponent(echarts),      // use as a component
+            ECharts: createComponent({ echarts }),      // use as a component
         },
         data() {
             return {
@@ -76,7 +76,7 @@ Vue.use(plugin, { echarts });                       // use as a plugin
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();   // call the method of the ECharts instance
+                this.$refs.chart.inst.getWidth();       // call the method of the ECharts instance
             }
         }
     }
@@ -89,14 +89,23 @@ Vue.use(plugin, { echarts });                       // use as a plugin
 #### Global API
 |Definition|Return|Explain|
 |-|-|-|
-|Object `createComponent`(echarts *echarts* [, Function *h*])|Component definition object|Create a component. Parameter `h` isn't required in Vue 2|
-|void `plugin`(Vue *app*, Object *options*)||The installation method of plugin. Parameter `options` has 3 props (`echarts`, `h`, `name`)|
+|Object `createComponent`(Object *initialOptions*)|Component definition object|Create a component|
+|void `plugin`(Vue *app*, Object *initialOptions*)||The installation method of plugin|
+
+
+#### initialOptions
+|Name|Type|Default|Optional|Explain|
+|-|-|-|-|-|
+|echarts|Object|||The global object of ECharts library|
+|h|Function||✔|The method `createElement` of Vue (**Required** for Vue 3)|
+|ResizeObserver|Function|window.ResizeObserver|✔|When the global `ResizeObserver` doesn't exist, the <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> provides support|
+|name|String|"ECharts"|✔|The registered name of the component|
 
 
 #### Instance Properties
-|Name|Type|Explain|
-|-|-|-|
-|inst|Object|ECharts instance|
+|Name|Type|ReadOnly|Explain|
+|-|-|-|-|
+|inst|Object|✔|ECharts instance|
 
 
 #### props
@@ -109,17 +118,17 @@ Vue.use(plugin, { echarts });                       // use as a plugin
 |loadingOpts|Object|||The parameter `opts` of ECharts instance `showLoading` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">see</a>|
 |option|Object||✔|The parameter `option` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
 |setOptionOpts|Object|||The parameter `opts` of ECharts instance `setOption` method, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
-|events|Array&lt;Arguments&gt;|||The array element is an argument of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
-|autoResize|Boolean|true||Auto resize (Based on `ResizeObserver`, forward compatibility via polyfill）|
+|events|Array&lt;Arguments&gt;|||An array element is the arguments of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
+|autoResize|Boolean|true||Auto resize (Based on `ResizeObserver`, forward compatibility via <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a>)|
 
 
 #### methods
 |Definition|Explain|
 |-|-|
 |void `setOption`(Object *option*, Object *opts*)|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
-|void `resize`()|Resize (Based on the size of outer div)|
-|void `addResizeListener`()|Add resize listener|
-|void `removeResizeListener`()|Remove resize listener|
+|void `resize`()|Resize chart (Based on the size of outer div)|
+|void `addResizeListener`()|Add "resize" listener|
+|void `removeResizeListener`()|Remove "resize" listener|
 
 
 #### Contact Us
