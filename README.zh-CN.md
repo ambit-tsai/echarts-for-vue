@@ -18,7 +18,7 @@ import echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
 const app = createApp({ /*...*/ });
-app.use(plugin, { echarts, h });                    // 作用插件使用
+app.use(plugin, { echarts, h });                        // 作用插件使用
 ```
 ```html
 <template>
@@ -32,7 +32,7 @@ app.use(plugin, { echarts, h });                    // 作用插件使用
 
     export default {
         components: {
-            ECharts: createComponent(echarts, h),   // 作为组件使用
+            ECharts: createComponent({ echarts, h }),   // 作为组件使用
         },
         data() {
             return {
@@ -41,7 +41,7 @@ app.use(plugin, { echarts, h });                    // 作用插件使用
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();   // 调用 ECharts 实例的方法
+                this.$refs.chart.inst.getWidth();       // 调用 ECharts 实例的方法
             }
         }
     }
@@ -54,7 +54,7 @@ import Vue from 'vue';
 import echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
-Vue.use(plugin, { echarts });                       // 作用插件使用
+Vue.use(plugin, { echarts });                           // 作用插件使用
 ```
 ```html
 <template>
@@ -67,7 +67,7 @@ Vue.use(plugin, { echarts });                       // 作用插件使用
 
     export default {
         components: {
-            ECharts: createComponent(echarts),      // 作为组件使用
+            ECharts: createComponent({ echarts }),      // 作为组件使用
         },
         data() {
             return {
@@ -76,7 +76,7 @@ Vue.use(plugin, { echarts });                       // 作用插件使用
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();   // 调用 ECharts 实例的方法
+                this.$refs.chart.inst.getWidth();       // 调用 ECharts 实例的方法
             }
         }
     }
@@ -89,14 +89,23 @@ Vue.use(plugin, { echarts });                       // 作用插件使用
 #### 全局 API
 |定义|返回值|说明|
 |-|-|-|
-|Object `createComponent`(echarts *echarts* [, Function *h*])|组件定义对象|创建组件。使用 Vue2 时，不需要第二个参数|
-|void `plugin`(Vue *app*, Object *options*)||插件的安装方法。参数 `options` 需包含 `echarts`、`h`|
+|Object `createComponent`(Object *initialOptions*)|组件定义对象|创建组件|
+|void `plugin`(Vue *app*, Object *initialOptions*)||插件的安装方法|
+
+
+#### initialOptions
+|名称|类型|默认值|可选|说明|
+|-|-|-|-|-|
+|echarts|Object|||ECharts 库的全局对象|
+|h|Function||✔|Vue 的 `createElement` 方法（使用 Vue 3 时，是**必选**的）|
+|ResizeObserver|Function|window.ResizeObserver|✔|全局 `ResizeObserver` 不存在时，可通过 <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> 提供支持|
+|name|String|"ECharts"|✔|组件的注册名称|
 
 
 #### 实例属性
-|名称|类型|说明|
-|-|-|-|
-|inst|Object|ECharts 实例|
+|名称|类型|只读|说明|
+|-|-|-|-|
+|inst|Object|✔|ECharts 实例|
 
 
 #### props
@@ -110,7 +119,7 @@ Vue.use(plugin, { echarts });                       // 作用插件使用
 |option|Object||✔|ECharts 实例 `setOption` 方法的入参 `option`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
 |setOptionOpts|Object|||ECharts 实例 `setOption` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
 |events|Array&lt;Arguments&gt;|||数组元素为ECharts 实例 `on` 方法的入参，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">详见</a>|
-|autoResize|Boolean|true||自动调整大小（基于 `ResizeObserver` 实现，可通过 polyfill 向前兼容）|
+|autoResize|Boolean|true||自动调整大小（基于 `ResizeObserver` 实现，通过 <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> 可向前兼容）|
 
 
 #### methods

@@ -1,20 +1,29 @@
 const path = require('path');
 const ROOT = path.resolve(__dirname, '../');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-inline-source-map',
     context: ROOT,
-    entry: `${ROOT}/test/main-vue2.js`,
+    entry: `${ROOT}/test/vue2/main.js`,
     output: {
-        path: `${ROOT}/docs`,
-        filename: 'test-vue2.js',
+        path: `${ROOT}/dist/test-vue2`,
+        filename: 'index.js',
+    },
+    resolve: {
+        alias: {
+            vue: 'vue2',
+            'echarts-for-vue': `${ROOT}/src/ECharts.js`,
+        },
     },
     module: {
         rules: [{
+            test: /\.vue$/,
+            loader: 'vue-loader',
+        }, {
             test: /\.js$/,
             use: {
                 loader: 'babel-loader',
@@ -25,17 +34,17 @@ module.exports = {
         }, {
             test: /\.css$/,
             use: [
-                'style-loader',
-                'css-loader',
+                'vue-style-loader',
+                'css-loader'
             ],
         }],
     },
     plugins: [
+        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: `${ROOT}/test/index.html`,
+            template: `${ROOT}/test/vue2/index.html`,
             filename: 'index.html',
         }),
-        new webpack.HotModuleReplacementPlugin(),
     ],
     optimization: {
         splitChunks: {
@@ -43,8 +52,7 @@ module.exports = {
         },
     },
     devServer: {
-        contentBase: `${ROOT}/docs`,
-        port: 9002,
+        port: 8002,
         hot: true,
         open: true,
     },

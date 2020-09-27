@@ -1,51 +1,15 @@
 const path = require('path');
-const ROOT = path.resolve(__dirname, '../');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const ROOT = path.resolve(__dirname, '../test/vue3');
 
 
-module.exports = {
-    mode: 'development',
-    devtool: 'cheap-module-inline-source-map',
-    context: ROOT,
-    entry: `${ROOT}/test/main-vue3.js`,
-    output: {
-        path: `${ROOT}/docs`,
-        filename: 'test-vue3.js',
+export default {
+    root: ROOT,
+    port: 8003,
+    open: true,
+    alias: {
+        vue: 'vue3',
+        'echarts-for-vue': '/@src/ECharts.js',
+        '/@test/': path.resolve(ROOT, '..'),
+        '/@src/': path.resolve(__dirname, '../src'),
     },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                },
-            },
-        }, {
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-            ],
-        }],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: `${ROOT}/test/index.html`,
-            filename: 'index.html',
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-    ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-        },
-    },
-    devServer: {
-        contentBase: `${ROOT}/docs`,
-        port: 9003,
-        hot: true,
-        open: true,
-    },
-};
+}
