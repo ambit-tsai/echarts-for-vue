@@ -8,7 +8,7 @@
 #### 特点
 1. 支持 Vue 3 和 2；
 1. 符合 Vue 与 ECharts 用户的使用习惯；
-1. 提供函数式 API ；
+1. 提供函数式 API，无副作用；
 1. 轻量级封装，简单易用；
 
 
@@ -48,8 +48,8 @@ app.use(plugin, { echarts, h });                        // 作为插件使用
         methods: {
             doSomething() {
                 this.$refs.chart.inst.getWidth();       // 调用 ECharts 实例的方法
-            }
-        }
+            },
+        },
     }
 </script>
 ```
@@ -83,8 +83,8 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
         methods: {
             doSomething() {
                 this.$refs.chart.inst.getWidth();       // 调用 ECharts 实例的方法
-            }
-        }
+            },
+        },
     }
 </script>
 ```
@@ -126,6 +126,7 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |setOptionOpts|object|||ECharts 实例 `setOption` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
 |events|Arguments[]|||数组元素为ECharts 实例 `on` 方法的入参，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">详见</a>|
 |autoResize|boolean|true||自动调整大小（基于 `ResizeObserver` 实现，可通过 <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> 向前兼容）|
+
 ***除了上述 `props`，其余属性将被传递给外层 `div`，如：`style`、`class`、`onclick` 等***
 
 
