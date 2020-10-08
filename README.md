@@ -8,7 +8,7 @@ ECharts wrapper component for Vue 3 and 2
 #### Features
 1. Support for Vue 3 and 2;
 1. Conform to the habits of Vue and ECharts users;
-1. Provide functional API;
+1. Provide functional API, no side effects;
 1. Lightweight encapsulation, easy to use;
 
 
@@ -47,9 +47,9 @@ app.use(plugin, { echarts, h });                        // use as a plugin
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();       // call the method of the ECharts instance
-            }
-        }
+                this.$refs.chart.inst.getWidth();       // call the method of ECharts instance
+            },
+        },
     }
 </script>
 ```
@@ -82,9 +82,9 @@ Vue.use(plugin, { echarts });                           // use as a plugin
         },
         methods: {
             doSomething() {
-                this.$refs.chart.inst.getWidth();       // call the method of the ECharts instance
-            }
-        }
+                this.$refs.chart.inst.getWidth();       // call the method of ECharts instance
+            },
+        },
     }
 </script>
 ```
@@ -126,6 +126,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |setOptionOpts|object|||The parameter `opts` of ECharts instance method `setOption`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
 |events|Arguments[]|||An array element is the arguments of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
 |autoResize|boolean|true||Auto resize (Based on `ResizeObserver`, forward compatibility via <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a>)|
+
 ***Beyond the `props` above, the remaining properties are passed to the outer `div`, such as `style`, `class` or `onclick`***
 
 
