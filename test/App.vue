@@ -28,8 +28,6 @@ import { Option1, Option2 } from './options';
 export default {
     data() {
         return {
-            Option1,
-            Option2,
             option: Option1,
             loading: false,
         };
@@ -38,7 +36,7 @@ export default {
         toggleChartOption() {
             this.loading = true;
             setTimeout(() => {
-                this.option = this.option === this.Option1 ? this.Option2 : this.Option1;
+                this.option = this.option === Option1 ? Option2 : Option1;
                 this.loading = false;
             }, 800);
         },
