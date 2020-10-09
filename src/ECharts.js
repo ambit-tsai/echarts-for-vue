@@ -4,12 +4,12 @@ import ResizeObserverSham from './ResizeObserverSham';
 
 /**
  * Create a component
- * @param {Object} options 
+ * @param {object} options 
  * @param {echarts} options.echarts
- * @param {Function} [options.h] `createElement`, required for Vue 3
- * @param {Function} [options.ResizeObserver]
- * @param {String} [options.name]
- * @returns {Object}
+ * @param {function} [options.h] `createElement`, required for Vue 3
+ * @param {function} [options.ResizeObserver]
+ * @param {string} [options.name]
+ * @returns {object} definition
  */
 export function createComponent({
     echarts,
@@ -75,8 +75,17 @@ export function createComponent({
                     this.inst.hideLoading();
                 }
             },
+            
             option(val) {
-                this.setOption(val);
+                this.setOption(val, this.setOptionOpts);
+            },
+
+            autoResize(val) {
+                if (val) {
+                    this.addResizeListener();
+                } else {
+                    this.removeResizeListener();
+                }
             },
         },
     
@@ -89,7 +98,7 @@ export function createComponent({
             },
     
             resize() {
-                const {clientWidth, clientHeight} = this.$el;
+                const { clientWidth, clientHeight } = this.$el;
                 this.inst.resize({
                     width: clientWidth,
                     height: clientHeight,
@@ -136,7 +145,7 @@ function getVue3Render(h) {
 /**
  * Install plugin
  * @param {Vue} app 
- * @param {Object} options
+ * @param {object} options
  */
 export function plugin(app, options) {
     const definition = createComponent(options);

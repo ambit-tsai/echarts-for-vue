@@ -2,14 +2,14 @@
 export function getHooks(echarts) {
     return {
         mounted() {
-            const inst = echarts.init(this.$el, this.theme, this.initOpts);
+            const inst = echarts.init(this.$el, this.initTheme, this.initOpts);
             this.$data._private.dynamic.inst = inst;
             
             if (this.loading) {
                 inst.showLoading(this.loadingType, this.loadingOpts)
             }
             if (this.option) {
-                this.setOption(this.option);
+                this.setOption(this.option, this.setOptionOpts);
             }
             if (this.events) {
                 this.events.forEach(args => inst.on(...args));
@@ -20,17 +20,21 @@ export function getHooks(echarts) {
         },
         
         activated() {
-            this.addResizeListener();
-            this.resize();
+            if (this.autoResize) {
+                this.addResizeListener();
+            }
         },
         
         deactivated() {
-            this.removeResizeListener();
+            if (this.autoResize) {
+                this.removeResizeListener();
+            }
         },
         
         beforeUnmount() {
             this.removeResizeListener();
             this.inst.dispose();
         },
+        
     };
 }
