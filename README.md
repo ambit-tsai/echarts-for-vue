@@ -1,22 +1,22 @@
-[简体中文](README.zh-CN.md) | English
+[简体中文](https://gitee.com/ambit/echarts-for-vue) | English
 
 
 # ECharts For Vue&nbsp;&nbsp;![Version](https://img.shields.io/npm/v/echarts-for-vue.svg)
-ECharts wrapper component for Vue 3 and 2
+📊📈 ECharts wrapper component for Vue 3 and 2
 
 
-#### Features
+## Features
 1. Support for Vue 3 and 2;
 1. Conform to the habits of Vue and ECharts users;
 1. Provide pure function API, no side effects;
 1. Lightweight encapsulation, easy to use;
 
 
-#### Install
+## Install
 `npm i -S echarts-for-vue`
 
 
-#### Usage
+## Usage
 1. Vue 3
 ```javascript
 import { createApp, h } from 'vue';
@@ -92,14 +92,14 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 4. <a href="https://ambit-tsai.github.io/echarts-for-vue/" target="_blank">Online demo</a>
 
 
-#### Global API
+## Global API
 |Definition|Return|Explanation|
 |-|-|-|
 |`createComponent`(*initialOptions*: object): object|Component definition object|Create a component|
 |`plugin`(*app*: Vue, *initialOptions*: object): void||The installation method of plugin|
 
 
-#### initialOptions
+## initialOptions
 |Property|Type|Default|Optional|Explanation|
 |-|-|-|-|-|
 |echarts|object|||The global object of ECharts library|
@@ -108,13 +108,13 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |name|string|"ECharts"|✔|The registered name of the component|
 
 
-#### Instance Properties
+## Instance Properties
 |Name|Type|ReadOnly|Explanation|
 |-|-|-|-|
 |inst|object|✔|ECharts instance|
 
 
-#### props
+## props
 |Name|Type|Default|Reactive|Explanation|
 |-|-|-|-|-|
 |initTheme|object \| string|||The parameter `theme` of `echarts.init` method, <a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">see</a>|
@@ -130,7 +130,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 ***Beyond the `props` above, the remaining properties are passed to the outer `div`, such as `style`, `class` or `onclick`***
 
 
-#### methods
+## methods
 |Definition|Explanation|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
@@ -139,7 +139,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |`removeResizeListener`(): void|Remove "resize" listener|
 
 
-#### Contact Us
+## Contact Us
 1. *WeChat*: ambit_tsai
 1. *QQ Group*: 663286147
 1. *E-mail*: ambit_tsai@qq.com
