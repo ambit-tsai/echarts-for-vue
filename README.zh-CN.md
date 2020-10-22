@@ -1,22 +1,22 @@
-简体中文 | [English](README.md)
+简体中文 | [English](https://github.com/ambit-tsai/echarts-for-vue)
 
 
 # ECharts For Vue&nbsp;&nbsp;![Version](https://img.shields.io/npm/v/echarts-for-vue.svg)
-适用于 Vue 3 和 2 的 ECharts 包装组件
+📊📈 适用于 Vue 3 和 2 的 ECharts 包装组件
 
 
-#### 特点
+## 特点
 1. 支持 Vue 3 和 2；
 1. 符合 Vue 与 ECharts 用户的使用习惯；
 1. 提供纯函数 API，无副作用；
 1. 轻量级封装，简单易用；
 
 
-#### 安装
+## 安装
 `npm i -S echarts-for-vue`
 
 
-#### 用法
+## 用法
 1. Vue 3
 ```javascript
 import { createApp, h } from 'vue';
@@ -92,14 +92,14 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 4. <a href="http://ambit.gitee.io/echarts-for-vue/" target="_blank">在线演示</a>
 
 
-#### 全局 API
+## 全局 API
 |定义|返回值|说明|
 |-|-|-|
 |`createComponent`(*initialOptions*: object): object|组件定义对象|创建组件|
 |`plugin`(*app*: Vue, *initialOptions*: object): void||插件的安装方法|
 
 
-#### initialOptions
+## initialOptions
 |属性|类型|默认值|可选|说明|
 |-|-|-|-|-|
 |echarts|object|||ECharts 库的全局对象|
@@ -108,13 +108,13 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |name|string|"ECharts"|✔|组件的注册名称|
 
 
-#### 实例属性
+## 实例属性
 |名称|类型|只读|说明|
 |-|-|-|-|
 |inst|object|✔|ECharts 实例|
 
 
-#### props
+## props
 |名称|类型|默认值|响应性|说明|
 |-|-|-|-|-|
 |initTheme|object \| string|||`echarts.init` 方法的入参 `theme`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
@@ -130,7 +130,7 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 ***除了上述 `props`，其余属性将被传递给外层 `div`，如：`style`、`class`、`onclick` 等***
 
 
-#### methods
+## methods
 |定义|说明|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|调用 ECharts 实例的 `setOption` 方法，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
@@ -139,7 +139,7 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |`removeResizeListener`(): void|移除 resize 监听器|
 
 
-#### 联系
+## 联系
 1. *微信*: ambit_tsai
 1. *QQ群*: 663286147
 1. *邮箱*: ambit_tsai@qq.com
