@@ -10,6 +10,7 @@
 1. Conform to the habits of Vue and ECharts users;
 1. Provide pure function API, no side effects;
 1. Lightweight encapsulation, easy to use;
+1. Support auto resize;
 
 
 ## Install
@@ -134,7 +135,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |Definition|Explanation|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
-|`resize`(): void|Resize chart (Based on the size of outer div)|
+|`resize`(): void|Resize chart (Based on the size of root element)|
 |`addResizeListener`(): void|Add "resize" listener|
 |`removeResizeListener`(): void|Remove "resize" listener|
 
