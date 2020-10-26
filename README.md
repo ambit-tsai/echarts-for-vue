@@ -10,6 +10,7 @@
 1. Conform to the habits of Vue and ECharts users;
 1. Provide pure function API, no side effects;
 1. Lightweight encapsulation, easy to use;
+1. Support auto resize;
 
 
 ## Install
@@ -127,14 +128,14 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |events|Arguments[]|||An array element is the arguments of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
 |autoResize|boolean|true|✔|Auto resize (Based on `ResizeObserver`, forward compatibility via <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a>)|
 
-***Beyond the `props` above, the remaining properties are passed to the outer `div`, such as `style`, `class` or `onclick`***
+***Beyond the `props` above, the remaining properties are passed to the root element of the component, such as `style`, `class` or `onclick`***
 
 
 ## methods
 |Definition|Explanation|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">see</a>|
-|`resize`(): void|Resize chart (Based on the size of outer div)|
+|`resize`(): void|Resize chart (Based on the size of root element)|
 |`addResizeListener`(): void|Add "resize" listener|
 |`removeResizeListener`(): void|Remove "resize" listener|
 

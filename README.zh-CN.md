@@ -10,6 +10,7 @@
 1. 符合 Vue 与 ECharts 用户的使用习惯；
 1. 提供纯函数 API，无副作用；
 1. 轻量级封装，简单易用；
+1. 支持图表大小自适应；
 
 
 ## 安装
@@ -127,14 +128,14 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |events|Arguments[]|||数组元素为ECharts 实例 `on` 方法的入参，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">详见</a>|
 |autoResize|boolean|true|✔|自动调整大小（基于 `ResizeObserver` 实现，可通过 <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> 向前兼容）|
 
-***除了上述 `props`，其余属性将被传递给外层 `div`，如：`style`、`class`、`onclick` 等***
+***除了上述 `props`，其余属性将被传递给组件的根元素，如：`style`、`class`、`onclick` 等***
 
 
 ## methods
 |定义|说明|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|调用 ECharts 实例的 `setOption` 方法，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.setOption" target="_blank">详见</a>|
-|`resize`(): void|调整图表大小（以组件外层 div 大小为基准）|
+|`resize`(): void|调整图表大小（以组件根元素大小为基准）|
 |`addResizeListener`(): void|添加 resize 监听器|
 |`removeResizeListener`(): void|移除 resize 监听器|
 
