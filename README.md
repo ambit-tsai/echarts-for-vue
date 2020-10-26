@@ -127,7 +127,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |events|Arguments[]|||An array element is the arguments of ECharts instance method `on`, <a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">see</a>|
 |autoResize|boolean|true|✔|Auto resize (Based on `ResizeObserver`, forward compatibility via <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a>)|
 
-***Beyond the `props` above, the remaining properties are passed to the outer `div`, such as `style`, `class` or `onclick`***
+***Beyond the `props` above, the remaining properties are passed to the root element of the component, such as `style`, `class` or `onclick`***
 
 
 ## methods

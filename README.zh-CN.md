@@ -127,7 +127,7 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |events|Arguments[]|||数组元素为ECharts 实例 `on` 方法的入参，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on" target="_blank">详见</a>|
 |autoResize|boolean|true|✔|自动调整大小（基于 `ResizeObserver` 实现，可通过 <a href="https://github.com/que-etc/resize-observer-polyfill" target="_blank">polyfill</a> 向前兼容）|
 
-***除了上述 `props`，其余属性将被传递给外层 `div`，如：`style`、`class`、`onclick` 等***
+***除了上述 `props`，其余属性将被传递给组件的根元素，如：`style`、`class`、`onclick` 等***
 
 
 ## methods
