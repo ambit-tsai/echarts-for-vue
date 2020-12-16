@@ -1,7 +1,7 @@
 /**
  * echarts-for-vue
- * @version 1.0.1
- * @author Ambit-Tsai <ambit_tsai@qq.com>
+ * @version 1.0.2
+ * @author Ambit Tsai <ambit_tsai@qq.com>
  * @license Apache-2.0
  * @see {@link https://github.com/ambit-tsai/echarts-for-vue#readme}
  */
