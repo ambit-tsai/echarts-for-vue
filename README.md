@@ -21,7 +21,7 @@
 1. Vue 3
 ```javascript
 import { createApp, h } from 'vue';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
 const app = createApp({ /*...*/ });
@@ -33,7 +33,7 @@ app.use(plugin, { echarts, h });                        // use as a plugin
 </template>
 
 <script>
-    import echarts from 'echarts';
+    import * as echarts from 'echarts';
     import { h } from 'vue';
     import { createComponent } from 'echarts-for-vue';
 
@@ -58,7 +58,7 @@ app.use(plugin, { echarts, h });                        // use as a plugin
 2. Vue 2
 ```javascript
 import Vue from 'vue';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import { plugin } from 'echarts-for-vue';
 
 Vue.use(plugin, { echarts });                           // use as a plugin
@@ -69,7 +69,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 </template>
 
 <script>
-    import echarts from 'echarts';
+    import * as echarts from 'echarts';
     import { createComponent } from 'echarts-for-vue';
 
     export default {
