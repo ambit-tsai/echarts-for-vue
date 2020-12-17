@@ -16,7 +16,7 @@
             <li>Resize the window to test the feature "autoResize";</li>
             <li><button @click="toggleChartOption" :disabled="loading">Click here</button> to toggle the chart options;</li>
             <li>Double click the symbol to test the event listener;</li>
-            <li>For details, see <a href="https://github.com/ambit-tsai/echarts-for-vue/tree/master/test/App.vue" target="_blank">/test/App.vue</a>;</li>
+            <li>For details, see <a href="https://github.com/ambit-tsai/echarts-for-vue/tree/master/test/vue2-echarts3/" target="_blank">/test/vue2-echarts3/</a>;</li>
         </ol>
     </div>
 </template>

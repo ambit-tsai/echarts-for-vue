@@ -1,0 +1,24 @@
+{
+  "name": "vue2-echarts5",
+  "version": "1.0.0",
+  "description": "test with Vue 2 and ECharts 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack serve --config ./scripts/test.js",
+    "build:docs": "webpack --config ./scripts/docs.js"
+  },
+  "author": "Ambit Tsai <ambit_tsai@qq.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "css-loader": "^5.0.1",
+    "echarts": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.5",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

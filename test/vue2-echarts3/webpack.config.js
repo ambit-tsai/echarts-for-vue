@@ -1,22 +1,21 @@
 const path = require('path');
-const ROOT = path.resolve(__dirname, '../');
+const ROOT = __dirname;
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
     mode: 'development',
-    devtool: 'cheap-module-inline-source-map',
+    devtool: 'inline-cheap-module-source-map',
     context: ROOT,
-    entry: `${ROOT}/test/vue2/main.js`,
+    entry: `${ROOT}/src/main.js`,
     output: {
-        path: `${ROOT}/dist/test-vue2`,
-        filename: 'index.js',
+        path: `${ROOT}/dist/`,
+        filename: '[name].js',
     },
     resolve: {
         alias: {
-            vue: 'vue2',
-            'echarts-for-vue': `${ROOT}/src/ECharts.js`,
+            'echarts-for-vue$': path.resolve(ROOT, '../../src/ECharts.js'),
         },
     },
     module: {
@@ -24,25 +23,22 @@ module.exports = {
             test: /\.vue$/,
             loader: 'vue-loader',
         }, {
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                },
-            },
-        }, {
             test: /\.css$/,
             use: [
                 'vue-style-loader',
-                'css-loader'
+                {
+                    loader: 'css-loader',
+                    options: {
+                        esModule: false,    // "vue-style-loader" doesn't support ES Module
+                    },
+                },
             ],
         }],
     },
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: `${ROOT}/test/vue2/index.html`,
+            template: `${ROOT}/index.html`,
             filename: 'index.html',
         }),
     ],
@@ -52,7 +48,7 @@ module.exports = {
         },
     },
     devServer: {
-        port: 8002,
+        port: 2003,
         hot: true,
         open: true,
     },
