@@ -14,7 +14,9 @@
 
 
 ## Install
-`npm i -S echarts-for-vue`
+```
+npm i -S echarts-for-vue
+```
 
 
 ## Usage
@@ -94,14 +96,14 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 
 
 ## Global API
-|Definition|Return|Explanation|
+|Definition|Return|Description|
 |-|-|-|
 |`createComponent`(*initialOptions*: object): object|Component definition object|Create a component|
 |`plugin`(*app*: Vue, *initialOptions*: object): void||The installation method of plugin|
 
 
 ## initialOptions
-|Property|Type|Default|Optional|Explanation|
+|Property|Type|Default|Optional|Description|
 |-|-|-|-|-|
 |echarts|object|||The global object of ECharts library|
 |h|function||✔|The method `createElement` of Vue (**Required** for Vue 3)|
@@ -110,13 +112,13 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 
 
 ## Instance Properties
-|Name|Type|ReadOnly|Explanation|
+|Name|Type|ReadOnly|Description|
 |-|-|-|-|
 |inst|object|✔|ECharts instance|
 
 
 ## props
-|Name|Type|Default|Reactive|Explanation|
+|Name|Type|Default|Reactive|Description|
 |-|-|-|-|-|
 |initTheme|object \| string|||The parameter `theme` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
 |initOpts|string|||The parameter `opts` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
@@ -132,7 +134,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 
 
 ## methods
-|Definition|Explanation|
+|Definition|Description|
 |-|-|
 |`setOption`(*option*: object, *opts*: object): void|Call the method `setOption` of ECharts instance, <a href="https://echarts.apache.org/en/api.html#echartsInstance.setOption" target="_blank">see</a>|
 |`resize`(): void|Resize chart (Based on the size of root element)|
@@ -140,7 +142,7 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 |`removeResizeListener`(): void|Remove "resize" listener|
 
 
-## Contact Us
+## Contact
 1. *WeChat*: ambit_tsai
 1. *QQ Group*: 663286147
 1. *E-mail*: ambit_tsai@qq.com

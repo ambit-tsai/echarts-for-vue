@@ -14,7 +14,9 @@
 
 
 ## 安装
-`npm i -S echarts-for-vue`
+```
+npm i -S echarts-for-vue
+```
 
 
 ## 用法
