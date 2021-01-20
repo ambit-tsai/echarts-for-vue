@@ -72,10 +72,8 @@ export const Option1 = Object.freeze({
             type: 'line',
             stack: '总量',
             label: {
-                normal: {
-                    show: true,
-                    position: 'top'
-                }
+                show: true,
+                position: 'top',
             },
             areaStyle: {},
             data: [820, 932, 901, 934, 1290, 1330, 1320]
