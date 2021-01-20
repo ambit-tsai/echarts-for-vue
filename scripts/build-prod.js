@@ -24,6 +24,7 @@ const banner = require('./banner');
         format: 'umd',
         banner,
         name: 'EChartsForVue',
+        sourcemap: true,
     });
 
     // Create the ESM version
@@ -31,6 +32,7 @@ const banner = require('./banner');
         file: 'dist/echarts-for-vue.mjs',
         format: 'esm',
         banner,
+        sourcemap: true,
     });
 
 })();
