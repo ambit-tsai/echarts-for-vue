@@ -4,9 +4,9 @@
             class="chart"
             ref="chart"
             :option="option"
-            :setOptionOpts="{ notMerge: false }"
+            :setOptionOpts="{ notMerge: true }"
             :loading="loading"
-            :loadingOpts="{ text: 'Wait for 0.8s' }"
+            :loadingOpts="{ text: 'Wait for 0.5s' }"
             :events="[
                 ['dblclick', onDblclick],
             ]"
@@ -37,15 +37,8 @@ export default {
             this.loading = true;
             setTimeout(() => {
                 this.option = this.option === Option1 ? Option2 : Option1;
-                this.option = {
-                    series: [{
-                        data: Option2.series[0].data.sort(() => Math.random() - .5),
-                    }, {
-                        data: Option2.series[1].data.sort(() => Math.random() - .5),
-                    }],
-                };
                 this.loading = false;
-            }, 100);
+            }, 500);
         },
         onDblclick() {
             alert('The listener is triggered');
