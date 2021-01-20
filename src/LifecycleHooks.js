@@ -2,21 +2,22 @@
 export function getHooks(echarts) {
     return {
         mounted() {
-            this.$nextTick(() => {
-                const inst = echarts.init(this.$el, this.initTheme, this.initOpts);
-                this.$data._private.dynamic.inst = inst;
+            const ctx = this;
+            ctx.$nextTick(() => {
+                const inst = echarts.init(ctx.$el, ctx.initTheme, ctx.initOpts);
+                ctx.$data._private.dynamic.inst = inst;
                 
-                if (this.loading) {
-                    inst.showLoading(this.loadingType, this.loadingOpts)
+                if (ctx.loading) {
+                    inst.showLoading(ctx.loadingType, ctx.loadingOpts)
                 }
-                if (this.option) {
-                    this.setOption(this.option, this.setOptionOpts);
+                if (ctx.option) {
+                    ctx.setOption(ctx.option, ctx.setOptionOpts);
                 }
-                if (this.events) {
-                    this.events.forEach(args => inst.on(...args));
+                if (ctx.events) {
+                    ctx.events.forEach(args => inst.on.apply(inst, args));
                 }
-                if (this.autoResize) {
-                    this.addResizeListener();
+                if (ctx.autoResize) {
+                    ctx.addResizeListener();
                 }
             });
         },

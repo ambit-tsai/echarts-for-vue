@@ -69,10 +69,11 @@ export function createComponent({
 
         watch: {
             loading(val) {
+                const ctx = this;
                 if (val) {
-                    this.inst.showLoading(this.loadingType, this.loadingOpts);
+                    ctx.inst.showLoading(ctx.loadingType, ctx.loadingOpts);
                 } else {
-                    this.inst.hideLoading();
+                    ctx.inst.hideLoading();
                 }
             },
             
@@ -118,13 +119,17 @@ export function createComponent({
 }
 
 
+
+const style = {
+    height: '100%',
+    overflow: 'hidden',
+};
+
+
 function vue2Render(h) {
     return h('div', {
         attrs: this.$attrs,
-        style: {
-            height: '100%',
-            overflow: 'hidden',
-        },
+        style,
     });
 }
 
@@ -133,10 +138,7 @@ function getVue3Render(h) {
     return function () {
         return h('div', {
             ...this.$attrs,
-            style: {
-                height: '100%',
-                overflow: 'hidden',
-            },
+            style,
         });
     };
 }

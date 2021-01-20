@@ -1,12 +1,11 @@
 
-export default typeof ResizeObserver === 'function'
-    ? ResizeObserver
-    : class ResizeObserverSham {
-        constructor() {
-            console.warn('[ECharts-For-Vue] "autoResize" is invalid, you need a ResizeObserver polyfill');
-        }
+function ResizeObserverSham() {
+    console.warn('[ECharts-For-Vue] "autoResize" is invalid, you need a ResizeObserver polyfill');
+}
 
-        disconnect() {}
+const noop = () => {};
+ResizeObserverSham.prototype.disconnect = noop;
+ResizeObserverSham.prototype.observe = noop;
 
-        observe() {}
-    }
+
+export default typeof ResizeObserver === 'function' ? ResizeObserver : ResizeObserverSham;
