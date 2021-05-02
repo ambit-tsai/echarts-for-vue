@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-vue",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "ECharts wrapper component for Vue 3 and 2",
   "main": "dist/echarts-for-vue.js",
   "module": "dist/echarts-for-vue.mjs",
@@ -9,6 +9,9 @@
   },
   "author": "Ambit Tsai <ambit_tsai@qq.com>",
   "license": "Apache-2.0",
+  "dependencies": {
+    "@types/echarts": "^4.9.7"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
@@ -32,8 +35,9 @@
     "echarts",
     "vue3",
     "vue",
-    "3",
     "chart",
+    "typescript",
+    "ts",
     "wrap"
   ]
 }
