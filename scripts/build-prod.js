@@ -1,19 +1,14 @@
 const rollup = require('rollup');
-const babel = require('@rollup/plugin-babel');
+const typescript = require('@rollup/plugin-typescript');
 const { terser } = require('rollup-plugin-terser');
 const banner = require('./banner');
 
 
 (async () => {
     const bundle = await rollup.rollup({
-        input: 'src/ECharts.js',
+        input: 'src/ECharts.ts',
         plugins: [
-            babel.default({
-                babelHelpers: 'bundled',
-                presets: [
-                    '@babel/preset-env'
-                ],
-            }),
+            typescript(),
             terser(),
         ],
     });
@@ -21,18 +16,18 @@ const banner = require('./banner');
     // Create the UMD version
     await bundle.write({
         file: 'dist/echarts-for-vue.js',
-        format: 'umd',
         banner,
-        name: 'EChartsForVue',
         sourcemap: true,
+        format: 'umd',
+        name: 'EChartsForVue',
     });
 
     // Create the ESM version
     await bundle.write({
         file: 'dist/echarts-for-vue.mjs',
-        format: 'esm',
         banner,
         sourcemap: true,
+        format: 'esm',
     });
 
 })();
