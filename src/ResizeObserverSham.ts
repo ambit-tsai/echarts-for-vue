@@ -1,4 +1,4 @@
-import { ResizeObserverConstructor } from '..'
+import { TypeOfResizeObserver } from '..'
 
 
 function ResizeObserverSham() {
@@ -12,4 +12,4 @@ ResizeObserverSham.prototype.observe = noop
 
 export default typeof ResizeObserver === 'function'
     ? ResizeObserver
-    : <ResizeObserverConstructor><unknown> ResizeObserverSham
+    : <TypeOfResizeObserver><unknown> ResizeObserverSham

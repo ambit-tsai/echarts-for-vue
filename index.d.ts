@@ -2,11 +2,11 @@ import * as echarts from 'echarts'
 
 
 type EChartsNS = typeof echarts
-type ResizeObserverConstructor = typeof ResizeObserver
+type TypeOfResizeObserver = typeof ResizeObserver
 type Options = {
     echarts: EChartsNS
     h?: Function
-    ResizeObserver?: ResizeObserverConstructor
+    ResizeObserver?: TypeOfResizeObserver
     name?: string
     deepWatchOption?: boolean
 }
