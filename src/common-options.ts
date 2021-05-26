@@ -1,6 +1,5 @@
 import { EChartsComponent } from './EChartsComponent.d'
 import {
-    ECharts,
     EChartOption,
     EChartsOptionConfig,
 } from 'echarts'
@@ -26,15 +25,18 @@ export default {
         autoResize: {
             type: Boolean,
             default: true,
-        }
-    },
-
-    computed: {
-        inst(this: EChartsComponent): ECharts {
-            return this.$data._private.inst
         },
     },
 
+    mounted(this: EChartsComponent) {
+        // Readonly property "inst"
+        Object.defineProperty(this, 'inst', {
+            get(this: EChartsComponent) {
+                return this.$data._private.inst
+            },
+        })
+        this.init()
+    },
     activated(this: EChartsComponent) {
         if (this.autoResize) {
             this.addResizeListener()
@@ -45,6 +47,12 @@ export default {
     },
 
     watch: {
+        initTheme(this: EChartsComponent) {
+            this.init()
+        },
+        initOpts(this: EChartsComponent) {
+            this.init()
+        },
         loading(this: EChartsComponent, val: boolean) {
             const ctx = this
             if (val) {

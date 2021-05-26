@@ -33,30 +33,8 @@ export function createComponent({
                         this.resize()
                         this.$emit('resize')
                     }),
-                    inst: undefined,
+                    inst: null,
                 }),
-            }
-        },
-        mounted(this: EChartsComponent) {
-            const ctx = this
-            const inst = echarts.init(ctx.$el, ctx.initTheme, ctx.initOpts)
-            ctx.$data._private.inst = inst
-            if (ctx.loading) {
-                inst.showLoading(ctx.loadingType, ctx.loadingOpts)
-            }
-            if (ctx.events) {
-                for (let args of ctx.events) {
-                    inst.on(...<[any, any]>args)
-                }
-            }
-            if (ctx.autoResize) {
-                ctx.addResizeListener()
-            }
-            if (ctx.option) {
-                // Wait for rendering
-                setTimeout(() => {
-                    ctx.setOption(ctx.option)
-                })
             }
         },
         watch: {
@@ -66,6 +44,37 @@ export function createComponent({
                     this.setOption(val)
                 },
                 deep: deepWatchOption,
+            },
+        },
+        methods: {
+            ...commonOptions.methods,
+            init(this: EChartsComponent) {
+                const ctx = this
+                const oldInst = ctx.inst
+                if (oldInst) {
+                    oldInst.dispose()
+                }
+                const inst = echarts.init(ctx.$el, ctx.initTheme, ctx.initOpts)
+                ctx.$data._private.inst = inst
+                if (ctx.loading) {
+                    inst.showLoading(ctx.loadingType, ctx.loadingOpts)
+                }
+                if (ctx.events) {
+                    for (const args of ctx.events) {
+                        inst.on(...<[any, any]>args)
+                    }
+                }
+                if (ctx.option) {
+                    if (oldInst) {
+                        ctx.setOption(ctx.option)
+                    } else {
+                        // Wait for rendering
+                        setTimeout(() => ctx.setOption(ctx.option))
+                    }
+                }
+                if (ctx.autoResize) {
+                    ctx.addResizeListener()
+                }
             },
         },
     }
