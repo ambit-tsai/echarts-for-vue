@@ -41,6 +41,7 @@ export type EChartsComponent = {
     events?: EventArguments[]
     autoResize: boolean
 
+    init(): void
     setOption(option: EChartOption, opts?: EChartsOptionConfig): void
     resize(): void
     addResizeListener(): void

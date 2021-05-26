@@ -117,8 +117,8 @@ Vue.use(plugin, { echarts });                           // use as a plugin
 ## props
 |Name|Type|Default|Reactive|Description|
 |-|-|-|-|-|
-|initTheme|object \| string|||The parameter `theme` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
-|initOpts|object|||The parameter `opts` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
+|initTheme|object \| string||✔|The parameter `theme` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
+|initOpts|object||✔|The parameter `opts` of `echarts.init` method, <a href="https://echarts.apache.org/en/api.html#echarts.init" target="_blank">see</a>|
 |loading|boolean|false|✔|Shows loading animation|
 |loadingType|string|"default"||The parameter `type` of ECharts instance method `showLoading`, <a href="https://echarts.apache.org/en/api.html#echartsInstance.showLoading" target="_blank">see</a>|
 |loadingOpts|EChartsLoadingOption|||The parameter `opts` of ECharts instance method `showLoading`, <a href="https://echarts.apache.org/en/api.html#echartsInstance.showLoading" target="_blank">see</a>|

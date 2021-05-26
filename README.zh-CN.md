@@ -117,8 +117,8 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 ## props
 |名称|类型|默认值|响应性|说明|
 |-|-|-|-|-|
-|initTheme|object \| string|||`echarts.init` 方法的入参 `theme`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
-|initOpts|object|||`echarts.init` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
+|initTheme|object \| string||✔|`echarts.init` 方法的入参 `theme`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
+|initOpts|object||✔|`echarts.init` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echarts.init" target="_blank">详见</a>|
 |loading|boolean|false|✔|显示加载动画效果|
 |loadingType|string|"default"||ECharts 实例 `showLoading` 方法的入参 `type`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">详见</a>|
 |loadingOpts|EChartsLoadingOption |||ECharts 实例 `showLoading` 方法的入参 `opts`，<a href="https://echarts.apache.org/zh/api.html#echartsInstance.showLoading" target="_blank">详见</a>|
@@ -145,17 +145,7 @@ Vue.use(plugin, { echarts });                           // 作为插件使用
 |`removeResizeListener`(): void|移除 resize 监听器|
 
 
-## 🎉 招聘
-<a href="https://www.gaoding.com/" target="_blank">稿定科技</a>招人啦 👇联系我可内推，或是推荐给需要的朋友
-1. 地点：厦门、深圳、杭州
-1. 职位：**前端**、后端、SRE工程师、产品、测试、UI设计、运营、市场 ...
-1. 福利：双休、弹性上下班、六险一金、餐补、MacBook、人体工学椅、班车、零食供应 ...
-
-*（🔓联系我解锁更多信息）*
-
-
-## ☎️ 联系
-1. *微信*: cai_fanwei
-1. *QQ*: 854521460
-1. *QQ群*: 663286147
-1. *邮箱*: ambit_tsai@qq.com
+## 联系
+1. 微信: ambit_tsai
+1. QQ群: 663286147
+1. 邮箱: ambit_tsai@qq.com
