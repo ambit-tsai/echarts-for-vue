@@ -31,9 +31,7 @@ export default {
     mounted(this: EChartsComponent) {
         // Readonly property "inst"
         Object.defineProperty(this, 'inst', {
-            get(this: EChartsComponent) {
-                return this.$data._private.inst
-            },
+            get: () => this.$data._private.inst,
         })
         this.init()
     },
